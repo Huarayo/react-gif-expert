@@ -1,0 +1,179 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* MY STYLES */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Distribuye las cartas uniformemente en el contenedor */
+}
+
+.card {
+  box-sizing: border-box;
+  /*Añadeunmargenentrelascartas*/padding: 10px;
+  flex: 1 1 250px;
+  /*Ajustaestevalorsegúntuspreferencias*/
+  max-width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(116, 103, 103, 0.1), 5px 0 100px rgb(101, 90, 90);
+  transition: transform 0.3s ease-in-out;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+img {
+  width: 100%;
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+figcaption {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 15px
+}
+.addCategory {
+  position: relative;
+  width: 100%;
+  margin-top:100px;
+}
+
+.addCategory input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #4285f4; /* Color del borde inferior */
+  font-size: 16px;
+  outline: none;
+  transition: border-bottom 0.3s; /* Efecto de transición en el borde inferior */
+}
+
+.addCategory input:focus {
+  border-bottom: 2px solid #333; /* Color del borde inferior al hacer focus */
+}
+
+
+.addCategory label,/* placeholder : toma el lugar del placeholder*/
+.addCategory label::after {/* simular placeholder que se va a arriba del input */
+  content: "Buscar gif:";
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  background-color: transparent;
+  padding: 0 5px;
+  font-size: 16px;
+  color: #777;
+  transition: 0.3s;
+  pointer-events: none;
+  transform-origin: 0 0;
+  user-select: none;
+}
+
+.addCategory label::after { /* que empice tranparente para que no se vea nada del contenido oculto */
+  color: transparent;
+}
+
+
+.addCategory input:focus + label::after { /* cuando haga focus en el input que me muestre el contenido label::after con color trasparente*/
+  top: 10px;
+  left: 0;
+  font-size: 16px;
+  color: #fff;
+}
+
+.addCategory input:focus + label { /* cuando haga focus en el input que me desaparesca el que tiene el papel de solo se placeholder*/
+  top: -12px;
+  left: 0;
+  font-size: 16px;
+  color: transparent;
+}
